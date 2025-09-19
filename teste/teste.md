@@ -1,43 +1,43 @@
 ```mermaid
 flowchart TD
 
-    A[Início] --> B[escreveArquivo()]
-    B --> C[leArquivo() → parâmetros]
+    A[Inicio] --> B[escreveArquivo]
+    B --> C[leArquivo -> parametros]
     C --> D[alfabeto(parametros)]
-    D --> E[inicializa população]
+    D --> E[Inicializa populacao]
 
-    E --> F[Loop: enquanto geração ≤ máx. gerações]
+    E --> F[Loop: enquanto geracao <= maxGeracoes]
     
-    F --> G[reproducao()]
-    G --> G1[Elitismo: mantém os melhores]
-    G1 --> G2[Seleção por Torneio: escolhe pais]
-    G2 --> G3[Recombinação Uniforme: gera filhos]
-    G3 --> G4[Mutação: altera genes]
+    F --> G[reproducao]
+    G --> G1[Elitismo: mantem os melhores]
+    G1 --> G2[Selecao por Torneio: escolhe pais]
+    G2 --> G3[Recombinacao Uniforme: gera filhos]
+    G3 --> G4[Mutacao: altera genes]
     G4 --> G5[Fitness: avalia frases]
-    G5 --> H[Melhor indivíduo atualizado]
+    G5 --> H[Melhor individuo atualizado]
 
     H --> I{Fitness == 0?}
-    I -- Não --> J[Próxima geração]
+    I -- Nao --> J[Proxima geracao]
     J --> F
     I -- Sim --> K[Fim do loop]
 
     K --> L[Calcular tempo total]
-    L --> M[escreveRelatorio(tempo, fitness)]
+    L --> M[escreveRelatorio (tempo, fitness)]
     M --> Z[Fim]
 
     %% Grupos de processos
-    subgraph Classes
-        IND[Classe INDIVIDUO: fitness, fraseArray]
-        PAR[Classe PARAMETROS: fraseAlvo, população, mutação, etc.]
+    subgraph Classes [Classes Auxiliares]
+        IND[Classe INDIVIDUO]
+        PAR[Classe PARAMETROS]
     end
 
-    subgraph Arquivos
-        ARQ1[entrada.in: parâmetros e frase alvo]
-        ARQ2[relatorio.txt: tempo e fitness]
-        ARQ3[metricas.in: dados binários]
+    subgraph Arquivos [Arquivos]
+        ARQ1[entrada.in]
+        ARQ2[relatorio.txt]
+        ARQ3[metricas.in]
     end
 
-    %% Ligações externas
+    %% Ligacoes externas
     B --> ARQ1
     C --> ARQ1
     M --> ARQ2
