@@ -1,14 +1,14 @@
 ```mermaid
 flowchart TD
 
-    A[Inicio] --> B[escreveArquivo]
-    B --> C[leArquivo -> parametros]
-    C --> D[alfabeto(parametros)]
-    D --> E[Inicializa populacao]
+    A[Inicio] --> B[Escreve Arquivo]
+    B --> C[Le Arquivo -> Parametros]
+    C --> D[Alfabeto Parametros]
+    D --> E[Inicializa Populacao]
 
-    E --> F[Loop: enquanto geracao <= maxGeracoes]
+    E --> F[Loop: enquanto geracao menor_igual maxGeracoes]
     
-    F --> G[reproducao]
+    F --> G[Reproducao]
     G --> G1[Elitismo: mantem os melhores]
     G1 --> G2[Selecao por Torneio: escolhe pais]
     G2 --> G3[Recombinacao Uniforme: gera filhos]
@@ -16,19 +16,19 @@ flowchart TD
     G4 --> G5[Fitness: avalia frases]
     G5 --> H[Melhor individuo atualizado]
 
-    H --> I{Fitness == 0?}
-    I -- Nao --> J[Proxima geracao]
+    H --> I{Fitness igual a zero?}
+    I -- Nao --> J[Proxima Geracao]
     J --> F
-    I -- Sim --> K[Fim do loop]
+    I -- Sim --> K[Fim do Loop]
 
-    K --> L[Calcular tempo total]
-    L --> M[escreveRelatorio (tempo, fitness)]
+    K --> L[Calcular Tempo Total]
+    L --> M[Escreve Relatorio]
     M --> Z[Fim]
 
     %% Grupos de processos
     subgraph Classes [Classes Auxiliares]
-        IND[Classe INDIVIDUO]
-        PAR[Classe PARAMETROS]
+        IND[Classe Individuo]
+        PAR[Classe Parametros]
     end
 
     subgraph Arquivos [Arquivos]
