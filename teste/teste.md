@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
 
     A[Início] --> B[escreveArquivo()]
